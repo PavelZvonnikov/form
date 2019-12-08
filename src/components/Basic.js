@@ -27,6 +27,10 @@ class Basic extends Component {
     });
   };
 
+  // cb = () => {
+  //   this.props.updateData(this.state.page);
+  // };
+
   onSubmit = e => {
     const errors = {};
     // const { updateData } = this.props;
@@ -52,18 +56,18 @@ class Basic extends Component {
         errors: errors
       });
     } else {
-      let page = this.state.page;
-      this.setState({
+      this.setState(prevState => ({
         errors: {},
-        page: page + 1
-      });
+        page: prevState.page + 1
+      }));
+      this.props.updateData(this.state.page);
+      // this.cb();
     }
   };
 
   onPrevious = e => {
-    let page = this.state.page;
     this.setState({
-      page: page - 1
+      page: this.state.page - 1
     });
   };
 
