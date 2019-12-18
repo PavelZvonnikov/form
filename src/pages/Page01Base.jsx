@@ -1,7 +1,7 @@
 import React from "react";
 
-import Field from "../components/Field.jsx";
-import { Button } from '../components/Button.jsx';
+import { Field } from "../components/Field.jsx";
+import { Button } from "../components/Button.jsx";
 
 export class Page01Base extends React.Component {
   onLocalChange = e => {
@@ -11,12 +11,7 @@ export class Page01Base extends React.Component {
 
   validate = () => {
     const { pageState } = this.props;
-    const {
-      firstname,
-      lastname,
-      password,
-      repeatPassword,
-    } = pageState;
+    const { firstname, lastname, password, repeatPassword } = pageState;
 
     const newErrors = {};
 
@@ -37,7 +32,7 @@ export class Page01Base extends React.Component {
     }
 
     return newErrors;
-  }
+  };
 
   onClickNextPage = e => {
     const { stateName, onChangeErrors, onNextPage } = this.props;
@@ -51,7 +46,7 @@ export class Page01Base extends React.Component {
       onChangeErrors(stateName, {});
       onNextPage();
     }
-  }
+  };
 
   render() {
     const { pageState } = this.props;
@@ -60,11 +55,12 @@ export class Page01Base extends React.Component {
       lastname,
       password,
       repeatPassword,
-      errors,
+      gender,
+      errors
     } = pageState;
 
     return (
-      <div className="form card-body">
+      <div className="wrapper">
         <Field
           id="Firstname"
           labelText="Firstname"
@@ -105,13 +101,42 @@ export class Page01Base extends React.Component {
           placeholder="Enter repeat password"
           error={errors.repeatPassword}
         />
+        <fieldset className="form-group">
+          <div>Gender</div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              checked={gender === "male"}
+              onChange={this.onLocalChange}
+            />
+            <label className="form-check-label" htmlFor="male">
+              Male
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              checked={gender === "female"}
+              onChange={this.onLocalChange}
+            />
+            <label className="form-check-label" htmlFor="female">
+              Female
+            </label>
+          </div>
+        </fieldset>
         <div className="form-group my-form-group">
-          <Button
-            text="Prev"
-            disabled
-          />
+          <Button text="Previous" disabled />
           <Button
             text="Next"
+            className="btn-secondary"
             onClick={this.onClickNextPage}
           />
         </div>

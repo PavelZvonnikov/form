@@ -1,28 +1,30 @@
 import React from "react";
 
-export const Field = props => {
-  const {
-    labelText,
-    type,
-    placeholder,
-    name,
-    value,
-    onChange,
-    id,
-    error
-  } = props;
+export const Select = ({
+  labelText,
+  name,
+  value,
+  onChange,
+  id,
+  error,
+  array
+}) => {
   return (
     <div className="form-group">
       <label htmlFor={id}>{labelText}</label>
-      <input
-        id={id}
-        type={type}
-        name={name}
+      <select
         className={error ? "form-control error" : "form-control"}
-        placeholder={placeholder}
+        name={name}
+        id={id}
         value={value}
         onChange={onChange}
-      />
+      >
+        {array.map(elem => (
+          <option key={elem.id} value={elem.id}>
+            {elem.name}
+          </option>
+        ))}
+      </select>
       {error ? <div className="invalid-feedback">{error}</div> : null}
     </div>
   );

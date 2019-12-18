@@ -1,17 +1,12 @@
-import React from 'react'
+import React from "react";
 
-export const Button = ({
-  disabled,
-  text,
-  onClick,
-  className,
-}) => (
+export const Button = ({ disabled, text, onClick, className }) => (
   <button
     type="button"
     disabled={disabled}
-    className={`btn btn-light mr-4 ${className || ''}`}
+    className={`btn ${className || ""}`}
     onClick={onClick}
   >
     {text}
   </button>
-)
+);

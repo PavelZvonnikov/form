@@ -1,22 +1,22 @@
-export default [
+export const countries = [
   {
-    id: 1,
+    id: 0,
     name: "Ukraine"
   },
   {
-    id: 2,
+    id: 1,
     name: "Germany"
   },
   {
-    id: 3,
+    id: 2,
     name: "France"
   },
   {
-    id: 4,
+    id: 3,
     name: "Spain"
   },
   {
-    id: 5,
+    id: 4,
     name: "USA"
   }
 ];

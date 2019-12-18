@@ -22,3 +22,80 @@ body {
 .error {
   border-color: red;
 }
+
+.steps {
+  display: flex;
+  width: 418px;
+  height: 63px;
+  align-self: center;
+}
+
+.step {
+  width: 104.5px;
+  height: 63px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step:not(:first-child):before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  bottom: 0;
+  top: 1rem;
+  left: -50%;
+  background: #b5b5b5;
+  z-index: -1;
+}
+
+.step.active:not(:first-child):before {
+  background: #f26120;
+}
+
+.step.active .step__marker {
+  background: #19ddfe;
+  border: 4px solid #f26120;
+}
+
+.step.completed:not(:first-child)::before {
+  background: #f26120;
+}
+
+.step.completed .step__marker {
+  background: #f26120;
+  border: 4px solid #f26120;
+}
+
+.step__marker {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #fff;
+  background: #b5b5b5;
+  border: 4px solid #fff;
+}
+
+.step__title {
+  font-weight: 700;
+}
+
+.avatar {
+  width: 100%;
+}
+
+/* .custom-file-input {
+  position: relative;
+} */
+
+.custom-file-label:after {
+  content: "Browse";
+  background-color: #e9ecef;
+}
